@@ -1,0 +1,22 @@
+#!/bin/bash
+OS=`uname`
+BINDIR="/opt/cos/bin"
+CONFDIR="/opt/cos/etc"
+case $OS in
+	Darwin)
+		ioreg -l | grep IOPlatformSerialNumber | cut -f4 -d'"'
+	;;
+	Linux)
+		if [ -f "$CONFDIR/SN.txt" ]; then
+		   cat $CONFDIR/SN.txt
+		   exit 0
+		fi
+		if ! [ $LOGNAME = "root" ]; then
+                        echo "Need to be root"
+                else
+			dmidecode -s system-serial-number
+			dmidecode -s system-serial-number > $CONFDIR/SN.txt
+			chmod 644 $CONFDIR/SN.txt
+		fi
+	;;
+esac	
