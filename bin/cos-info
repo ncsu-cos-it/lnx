@@ -1,0 +1,11 @@
+#!/bin/sh
+<<<<<<< HEAD
+echo "HostName:     "`hostname` > $HOME/Desktop/COS-INFO.txt
+echo "Tag:          "`/usr/local/bin/show-tag` >> $HOME/Desktop/COS-INFO.txt
+echo "IP Address:   "`/usr/local/bin/show-ip` >> $HOME/Desktop/COS-INFO.txt
+=======
+echo "HostName:     "`hostname` > $HOME/COS-INFO.txt
+echo "Tag:          "`/usr/local/bin/show-tag` >> $HOME/COS-INFO.txt
+echo "IP Address:   "`/usr/local//bin/show-ip` >> $HOME/COS-INFO.txt
+cat $HOME/COS-INFO.txt
+>>>>>>> refs/remotes/origin/master
