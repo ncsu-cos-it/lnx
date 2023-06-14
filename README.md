@@ -6,7 +6,7 @@
  <li>git clone https://github.com/ncsu-cos-it/lnx cos<br>
  (If permission denied)<br>
     <ul>
-    <li>sudo chown ncsu /opt</li>
+    <li>sudo chgrp ncsu /opt</li>
     <li>sudo chmod 775 /opt</li>
     </ul>
  (Repeat above steps 2-3)</li>
