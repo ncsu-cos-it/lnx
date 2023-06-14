@@ -11,7 +11,12 @@ if [ -f "$CONFDIR/Tag.txt" ]
      fi
      if [ -e "/opt/cos/sbin/show-sn" ] 
      then
-             SN=`/opt/cos/sbin/show-sn`
+             if [ -f "$CONFDIR/SN.txt" ]
+             then
+                SN=`cat $CONFDIR/SN.txt`
+             else
+                SN=`/opt/cos/sbin/show-sn`
+             fi
      else
 	     echo "Missing: /opt/cos/sbin/show-sn"
 	     exit 0
