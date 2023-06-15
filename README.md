@@ -1,5 +1,5 @@
 # NC State University - COS IT
-## Initial
+## Initial Install
 <ol>
  <li>Open "terminal"</li>
  <li>mkdir /opt</li>
