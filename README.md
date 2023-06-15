@@ -1,6 +1,7 @@
 # NC State University - COS IT
 ## Initial
 <ol>
+ <li>Open "terminal"</li>
  <li>mkdir /opt</li>
  <li>cd /opt</li>
  <li>git clone https://github.com/ncsu-cos-it/lnx cos<br>
@@ -19,6 +20,7 @@
 
 ## Update
 <ol>
+ <li>Open "terminal"</li>
  <li>cd /opt/cos</li>
  <li>git fetch</li>
  <li>git merge</li>
