@@ -21,10 +21,11 @@
 
 ## Update
 <ol>
- <li>Open "terminal"</li>
- <li>cd /opt/cos</li>
- <li>git fetch</li>
- <li>git merge</li>
+  <li>Open "terminal"</li>
+  <li>cd /opt/cos</li>
+  <li>git fetch</li>
+  <li>git merge</li>
+  <li>exit</li>
 </ol>
 
 ## Contact
