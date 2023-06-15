@@ -7,55 +7,61 @@ case $SHELL in
        echo ' ' >> ~/.profile
        echo '## COS-IT' >> ~/.profile 
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.profile
+       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/bash")
      CHECK=`cat ~/.bashrc | grep COS-IT`
-     if [ "$CHECK" = "" ]; then
+     if [ -z "$CHECK" ]; then
        echo ' ' >> ~/.bashrc
        echo '## COS-IT' >> ~/.bashrc
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.bashrc
+       export PATH={$PATH}:/opt/cos/bin 
      fi
      ;;
   "/bin/dash")
      CHECK=`cat ~/.profile | grep COS-IT`
-     if [ "$CHECK" = "" ]; then
+     if [ -z "$CHECK" ]; then
        echo ' ' >> ~/.profile
        echo '## COS-IT' >> ~/.profile
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.profile
+       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/ksh")
      CHECK=`cat ~/.profile | grep COS-IT`
-     if [ "$CHECK" = "" ]; then
+     if [ -z "$CHECK" ]; then
        echo ' ' >> ~/.profile
        echo '## COS-IT' >> ~/.profile
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.profile
+       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/zsh")
      CHECK=`cat ~/.zshrc | grep COS-IT`
-     echo CHECK=$CHECK'abcdef'
      if [ -z "$CHECK" ]; then
        echo ' ' >> ~/.zshrc
        echo '## COS-IT' >> ~/.zshrc
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.zshrc
+       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/csh")
      CHECK=`cat ~/.cshrc | grep COS-IT`
-     if [ "$CHECK" = "" ]; then
+     if [ -z "$CHECK" ]; then
        echo ' ' >> ~/.cshrc
        echo '## COS-IT' >> ~/.cshrc
        echo 'set PATH = ($PATH /opt/cos/bin)' >> ~/.cshrc
+       set PATH = ($PATH /opt/cos/bin)
      fi
      ;;
   "/bin/tcsh")
      CHECK=`cat ~/.cshrc | grep COS-IT`
-     if [ "$CHECK" = "" ]; then
+     if [ -z "$CHECK" ]; then
         echo ' ' >> ~/.cshrc
         echo '## COS-IT' >> ~/.cshrc
         echo 'set PATH = ($PATH:/opt/cos/bin)' >> ~/.cshrc
+        set PATH = ($PATH:/opt/cos/bin)
      fi
      ;;
 esac
