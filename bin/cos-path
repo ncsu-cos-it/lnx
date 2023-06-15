@@ -65,3 +65,4 @@ case $SHELL in
      fi
      ;;
 esac
+echo PATH=$PATH
