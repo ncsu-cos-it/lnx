@@ -10,7 +10,7 @@
     <li>sudo chgrp ncsu /opt</li>
     <li>sudo chmod 775 /opt</li>
     </ul>
- (Repeat above steps 2-3)</li>
+ (Repeat above steps 3-4)</li>
   <li>cd cos/sbin</li>
   <li>sudo ./show-sn</li>
   <li>cd ../bin</li>
