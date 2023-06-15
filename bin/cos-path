@@ -7,7 +7,6 @@ case $SHELL in
        echo ' ' >> ~/.profile
        echo '## COS-IT' >> ~/.profile 
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.profile
-       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/bash")
@@ -16,7 +15,6 @@ case $SHELL in
        echo ' ' >> ~/.bashrc
        echo '## COS-IT' >> ~/.bashrc
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.bashrc
-       export PATH={$PATH}:/opt/cos/bin 
      fi
      ;;
   "/bin/dash")
@@ -25,7 +23,6 @@ case $SHELL in
        echo ' ' >> ~/.profile
        echo '## COS-IT' >> ~/.profile
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.profile
-       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/ksh")
@@ -34,7 +31,6 @@ case $SHELL in
        echo ' ' >> ~/.profile
        echo '## COS-IT' >> ~/.profile
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.profile
-       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/zsh")
@@ -43,7 +39,6 @@ case $SHELL in
        echo ' ' >> ~/.zshrc
        echo '## COS-IT' >> ~/.zshrc
        echo 'export PATH={$PATH}:/opt/cos/bin' >> ~/.zshrc
-       export PATH={$PATH}:/opt/cos/bin
      fi
      ;;
   "/bin/csh")
@@ -52,7 +47,6 @@ case $SHELL in
        echo ' ' >> ~/.cshrc
        echo '## COS-IT' >> ~/.cshrc
        echo 'set PATH = ($PATH /opt/cos/bin)' >> ~/.cshrc
-       set PATH = ($PATH /opt/cos/bin)
      fi
      ;;
   "/bin/tcsh")
@@ -61,8 +55,6 @@ case $SHELL in
         echo ' ' >> ~/.cshrc
         echo '## COS-IT' >> ~/.cshrc
         echo 'set PATH = ($PATH:/opt/cos/bin)' >> ~/.cshrc
-        set PATH = ($PATH:/opt/cos/bin)
      fi
      ;;
 esac
-echo PATH=$PATH
