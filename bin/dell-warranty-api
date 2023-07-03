@@ -4,6 +4,17 @@ if [ $# -lt 1 ]; then
 	echo ERROR: $0 {Dell ServiceTag}
 	exit 0
 fi
+
+CHECK=`which curl`
+if [ "$CHECK" = "" ]; then
+  echo [ curl ] is not found.
+  exit 0
+fi
+CHECK=`which jq`
+if [ "$CHECK" = "" ]; then
+  echo [ jq ] is not found.
+  exit 0
+fi
 access_token_url="https://apigtwb2c.us.dell.com/auth/oauth/v2/token"
 grant_type="client_credentials"
 client_id="l7e0e01c38206545e68ef9b72ae8e32726"
