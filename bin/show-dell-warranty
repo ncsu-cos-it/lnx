@@ -1,0 +1,26 @@
+#!/bin/bash
+BINDIR="/opt/cos/bin"
+CONFDIR="/opt/cos/etc"
+if ! [ -d "$CONFDIR" ] 
+  then
+     mkdir -p $CONFDIR
+  fi
+if [ -e "/opt/cos/sbin/show-sn" ] 
+  then
+     if [ -f "$CONFDIR/SN.txt" ]
+       then
+           SN=`cat $CONFDIR/SN.txt`
+       else
+           SN=`/opt/cos/sbin/show-sn`
+     fi
+  else
+     echo "Missing: /opt/cos/sbin/show-sn"
+     exit 0
+fi
+if [ -e "$BINDIR/dell-warranty-api" ] 
+  then
+     $BINDIR/dwll-warranty-api $SN 
+  else
+     echo "Missing: $BINDIR/dell-warranty-api"
+     exit 0
+fi

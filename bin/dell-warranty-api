@@ -42,7 +42,9 @@ do
           --url 'https://apigtwb2c.us.dell.com/PROD/sbil/eapi/v5/asset-entitlements?servicetags='$SN''\
           --header "Authorization: Bearer $ACCESS" \
           --header "accept: application/json" `
+   # echo $RESULT
+   MODEL=`echo -n $RESULT | cut -f11 -d: | cut -f1 -d, | sed -e 's/"//g'`
    STARTDATE=`echo -n $RESULT | cut -f20 -d: | cut -f1 -d"T" | sed -e 's/"//g'`
    ENDDATE=`echo  $RESULT | cut -f23 -d: | cut -f1 -d"T" | sed -e 's/"//g'`
-   echo $SN,$STARTDATE,$ENDDATE
+   echo "$SN,$MODEL,$STARTDATE,$ENDDATE"
 done
