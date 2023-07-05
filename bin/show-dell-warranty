@@ -19,7 +19,7 @@ if [ -e "/opt/cos/sbin/show-sn" ]
 fi
 if [ -e "$BINDIR/dell-warranty-api" ] 
   then
-     $BINDIR/dwll-warranty-api $SN 
+     $BINDIR/dell-warranty-api $SN 
   else
      echo "Missing: $BINDIR/dell-warranty-api"
      exit 0
