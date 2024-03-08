@@ -1,0 +1,27 @@
+#!/bin/sh
+## SUDO-USER will query if user is valid and then allow sudo access.
+##
+if [ $# -lt 1 ]; then
+        echo "Usage: $0 {unityid}"
+        exit 0
+fi
+
+if [ "$USERNAME" = "root" ] || [ "$USER" = "root" ]; then
+	CHECK=`groups $1 | grep sudo`
+	if [ ! "$CHECK" ]; then
+	        PASS=`getent passwd $1`
+		if [ ! "$PASS" ]; then
+			echo "ERROR: $1 not valid NCSU UNITYID."
+			exit 0
+		fi
+                # Add User to ssh Group
+                /usr/sbin/usermod -a -G sudo $1
+		echo " "
+		echo "NCSU ID: $1 has been granted sudo access."
+
+	else
+       		echo $1 already has sudo access.
+	fi
+else
+        echo "ERROR: sudo /usr/local/sbin/sudo-user {unityid}"
+fi

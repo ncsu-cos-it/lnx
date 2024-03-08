@@ -1,0 +1,38 @@
+#!/bin/sh
+## SSH-USER will query if the user is valid and then allow ssh access.
+## Modified for CLS environment (10/2020)
+##
+if [ $# -lt 1 ]; then
+        echo "Usage: $0 {unityid}"
+        exit 0
+fi
+
+if [ "$USERNAME" = "root" ] || [ "$USER" = "root" ]; then
+	CHECK=`groups $1 | grep sshd`
+	if [ ! "$CHECK" ]; then
+	        PASS=`getent passwd $1`
+		if [ ! "$PASS" ]; then
+			echo "ERROR: $1 not valid NCSU UNITYID."
+			exit 0
+		fi
+                /usr/sbin/usermod -a -G sshd $1
+                /usr/sbin/usermod -a -G users $1
+                /usr/sbin/usermod -a -G staff $1
+        	# Create Aliase for New User
+        	echo "$1:       $1@ncsu.edu" >> /etc/aliases
+                ## Create Home Directory if not on machine
+                if [ ! -d /home/$1 ]; then
+                    mkdir /home/$1
+                    cp -R /etc/skel/.??* /home/$1/
+                    chown -R $1.ncsu /home/$1
+                    chmod 700 /home/$1
+                fi 
+		echo " "
+		echo "NCSU ID: $1 has been granted ssh access."
+
+	else
+       		echo $1 already has ssh access.
+	fi
+else
+        echo "ERROR: sudo /usr/local/sbin/ssh-user-add {unityid}"
+fi

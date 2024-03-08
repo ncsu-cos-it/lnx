@@ -1,0 +1,20 @@
+#!/bin/bash
+cd /opt/cos
+git fetch
+git merge
+cd /etc/skel
+rsync -rtlvzpog /opt/cos/skel/.??* .
+cd /root
+echo " [ root/ ] "
+rsync -tlvz /opt/cos/skel/.??* .
+cd /home
+for dir in */
+do
+     echo " [ $dir ] "
+     tuser=`echo $dir | cut -f1 -d/`
+     cd $dir
+     rsync -tlvz /opt/cos/skel/.??* .
+     chown $tuser .??*  
+     cd /home
+done
+

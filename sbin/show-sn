@@ -4,7 +4,14 @@ BINDIR="/opt/cos/bin"
 CONFDIR="/opt/cos/etc"
 case $OS in
 	Darwin)
-		ioreg -l | grep IOPlatformSerialNumber | cut -f4 -d'"'
+		if [ -f "$CONFDIR/SN.txt" ]; then
+		   cat $CONFDIR/SN.txt
+		   exit 0
+		else
+		   ioreg -l | grep IOPlatformSerialNumber | cut -f4 -d'"' > $CONFDIR/SN.txt
+		   chmod 644 $CONFDIR/SN.txt
+		   cat $CONFDIR/SN.txt
+		fi
 	;;
 	Linux)
 		if [ -f "$CONFDIR/SN.txt" ]; then

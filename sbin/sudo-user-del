@@ -1,0 +1,28 @@
+#!/bin/sh
+## SSH-USER will query if the user is valid and then allow ssh access.
+## Modified for CLS environment (10/2020)
+##
+if [ $# -lt 1 ]; then
+        echo "Usage: $0 {unityid}"
+        exit 0
+fi
+
+if [ "$USERNAME" = "root" ] || [ "$USER" = "root" ]; then
+	CHECK=`groups $1 | grep sudo`
+	if [ "$CHECK" ]; then
+	        PASS=`getent passwd $1`
+		if [ ! "$PASS" ]; then
+			echo "ERROR: $1 not valid NCSU UNITYID."
+			exit 0
+		fi
+                # Add User to ssh Group
+                /usr/bin/gpasswd -d $1 sudo
+		echo " "
+		echo "NCSU ID: $1 has been removed from sudo access."
+
+	else
+       		echo $1 did not have sudo access.
+	fi
+else
+        echo "ERROR: sudo /usr/local/sbin/sudo-user-del {unityid}"
+fi
