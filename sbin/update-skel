@@ -12,9 +12,11 @@ for dir in */
 do
      echo " [ $dir ] "
      tuser=`echo $dir | cut -f1 -d/`
+     tgroup=`groups $tuser | cut -f3 -d' '`
      cd $dir
      rsync -tlvz /opt/cos/skel/.??* .
      chown $tuser .??*  
+     chgrp $group .??*  
      cd /home
 done
 
