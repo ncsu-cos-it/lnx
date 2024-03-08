@@ -16,7 +16,7 @@ do
      cd $dir
      rsync -tlvz /opt/cos/skel/.??* .
      chown $tuser .??*  
-     chgrp $group .??*  
+     chgrp $tgroup .??*  
      cd /home
 done
 
