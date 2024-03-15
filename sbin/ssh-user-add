@@ -28,6 +28,9 @@ if [ "$USERNAME" = "root" ] || [ "$USER" = "root" ]; then
                     chmod 700 /home/$1
                 fi 
 		echo " "
+		whois -h whois.ncsu.edu username $1
+		echo " "
+		echo " "
 		echo "NCSU ID: $1 has been granted ssh access."
 
 	else

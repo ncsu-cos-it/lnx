@@ -17,6 +17,9 @@ if [ "$USERNAME" = "root" ] || [ "$USER" = "root" ]; then
                 # Add User to ssh Group
                 /usr/sbin/usermod -a -G sudo $1
 		echo " "
+                whois -h whois.ncsu.edu username $1
+                echo " "
+                echo " "
 		echo "NCSU ID: $1 has been granted sudo access."
 
 	else
