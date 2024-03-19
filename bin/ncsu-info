@@ -1,0 +1,15 @@
+#!/bin/sh
+## SSH-USER will query if the user is valid and then allow ssh access.
+## Modified for CLS environment (10/2020)
+##
+if [ $# -lt 1 ]; then
+        echo "Usage: $0 {unityid}"
+        exit 0
+fi
+
+PASS=`hes $1 passwd`
+if [ ! "$PASS" ]; then
+   echo "ERROR: $1 not valid NCSU UNITYID."
+   exit 0
+fi
+whois -h whois.ncsu.edu username $1
