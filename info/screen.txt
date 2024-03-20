@@ -1,0 +1,25 @@
+Interactively
+$ screen -S sim1
+$ R
+  — Runs R interactively
+     <Ctrl><a><d>
+  — Leaves tmux session 
+$ exit
+
+Batch
+$ screen -ls
+$ screen -r sim1
+
+Sharing:
+https://www.howtogeek.com/662422/how-to-use-linuxs-screen-command/
+
+[Person 1]
+ssh sysadmin@geek.stat.ncsu.edu
+screen -d -m -S ssh-geek
+screen -x ssh-geek
+ssh root@rstudio.stat.ncsu.edu
+
+[Person 2]
+ssh sysadmin@geek.stat.ncsu.edu
+screen -X ssh-geek
+(Person 2 will see what is typed by Person 1)

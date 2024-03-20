@@ -1,0 +1,22 @@
+Interactively
+$ tmux new -s sim1
+$ R
+  — Runs R interactively
+     <Ctrl><b><d>
+  — Leaves tmux session 
+$ exit
+
+Batch
+$ tmux ls
+$ tmux attach-session -t sim1
+$ tmux kill-session -t sim1
+  (Once done) 
+
+https://www.howtoforge.com/sharing-terminal-sessions-with-tmux-and-screen
+Sharing
+[Person 1]
+$ tmux -S /tmp/shareds new -s shared
+$ chgrp ncsu /tmp/shareds
+
+[Person 2]
+$ tmux -S /tmp/shareds attach-session -t shared
