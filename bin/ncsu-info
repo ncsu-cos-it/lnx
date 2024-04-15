@@ -7,7 +7,7 @@ if [ $# -lt 1 ]; then
         exit 0
 fi
 
-PASS=`hes $1 passwd`
+PASS=`getent passwd $1`
 if [ ! "$PASS" ]; then
    echo "ERROR: $1 not valid NCSU UNITYID."
    exit 0
