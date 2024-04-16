@@ -6,7 +6,6 @@ then
 fi
 
 if [ -f "/usr/bin/members" ]; then
-  echo "running installed"
   /usr/bin/members $1
 else
   cat /etc/group | grep $1 | cut -f4 -d: | sed -e 's/,/ /g'
