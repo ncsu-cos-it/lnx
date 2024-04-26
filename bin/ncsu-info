@@ -13,7 +13,7 @@ if [ ! "$PASS" ]; then
    exit 0
 fi
 CHECK=`grep $1 /etc/passwd`
-if -z [ $CHECK ]; 
+if [ ! "$CHECK" ]; then
 	whois -h whois.ncsu.edu username $1
 else
 	finger $1
