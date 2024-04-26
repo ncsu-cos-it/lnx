@@ -1,0 +1,29 @@
+#!/bin/bash
+OS=`uname`
+BINDIR="/opt/cos/bin"
+CONFDIR="/opt/cos/etc"
+case $OS in
+	Darwin)
+		if [ -f "$CONFDIR/MODEL.txt" ]; then
+		   cat $CONFDIR/MODEL.txt
+		   exit 0
+		else
+		   system_profiler SPHardwareDataType | grep Identifier | awk '{print $3}'  > $CONFDIR/SN.txt
+		   chmod 644 $CONFDIR/MODEL.txt
+		   cat $CONFDIR/MODEL.txt
+		fi
+	;;
+	Linux)
+		if [ -f "$CONFDIR/MODEL.txt" ]; then
+		   cat $CONFDIR/MODEL.txt
+		   exit 0
+		fi
+		if ! [ $LOGNAME = "root" ]; then
+                        echo "Need to be root"
+                else
+			dmidecode -s system-product-name
+			dmidecode -s system-product-name > $CONFDIR/MODEL.txt
+			chmod 644 $CONFDIR/MODEL.txt
+		fi
+	;;
+esac	
