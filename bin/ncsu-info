@@ -16,5 +16,5 @@ CHECK=`grep $1 /etc/passwd`
 if [ ! "$CHECK" ]; then
 	whois -h whois.ncsu.edu username $1
 else
-	finger $1
+	echo "[ $1 ] is a local account"
 fi
