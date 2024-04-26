@@ -8,7 +8,7 @@ case $OS in
 		   cat $CONFDIR/MODEL.txt
 		   exit 0
 		else
-		   system_profiler SPHardwareDataType | grep Identifier | awk '{print $3}'  > $CONFDIR/SN.txt
+		   system_profiler SPHardwareDataType | grep Identifier | awk '{print $3}'  > $CONFDIR/MODEL.txt
 		   chmod 644 $CONFDIR/MODEL.txt
 		   cat $CONFDIR/MODEL.txt
 		fi
@@ -21,8 +21,9 @@ case $OS in
 		if ! [ $LOGNAME = "root" ]; then
                         echo "Need to be root"
                 else
-			dmidecode -s system-product-name
-			dmidecode -s system-product-name > $CONFDIR/MODEL.txt
+			MODEL=`dmidecode -s system-product-name | sed -e 's/ /_/g'`
+			echo $MODEL
+			echo $MODEL > $CONFDIR/MODEL.txt
 			chmod 644 $CONFDIR/MODEL.txt
 		fi
 	;;
