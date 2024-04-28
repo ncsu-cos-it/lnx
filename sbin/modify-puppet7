@@ -1,0 +1,2 @@
+#!/bin/sh
+sed -i 's/nobel/jammy/' /etc/apt/sources.list.d/puppet7-release.list
