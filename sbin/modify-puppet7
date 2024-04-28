@@ -1,2 +1,5 @@
 #!/bin/sh
-sed -i 's/nobel/jammy/' /etc/apt/sources.list.d/puppet7-release.list
+OS=`lsb_release -i | grep -i Ubuntu`
+if [ "$OS" ]; then
+   sed -i 's/noble/jammy/' /etc/apt/sources.list.d/puppet7-release.list
+fi
