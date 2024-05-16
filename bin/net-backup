@@ -4,8 +4,7 @@
 USER=${LOGNAME}
 LOGFILE="bkup-log.txt"
 ARCHIVE="/home"
-SRVDIR="LINUX"
-SERVER="geek.stat.ncsu.edu"
+SRVDIR="/ncsu/$USER/linux"
 
 #=== Backin up The Files ===
 echo "Backing up files....."
@@ -15,9 +14,9 @@ echo "." >> /tmp/${LOGFILE}
 echo "." >> /tmp/${LOGFILE}
 echo "Backing up $USER..." >> /tmp/${LOGFILE}
 cd $ARCHIVE
-/usr/bin/rsync -e ssh -rltvz --delete ${USER} ${USER}@${SERVER}:${SRVDIR} >> /tmp/${LOGFILE}
+/usr/bin/rsync -rltvz --delete ${USER} ${SRVDIR} >> /tmp/${LOGFILE}
 echo "." >> /tmp/${LOGFILE}
 echo "===================================================================" >> /tmp/${LOGFILE}
 cd /tmp
 echo "Backing up $LOGFILE..." >> /tmp/${LOGFILE}
-/usr/bin/rsync -e ssh -rltvz --delete $LOGFILE  ${USER}@${SERVER}:
+/usr/bin/rsync -rltvz --delete $LOGFILE  ${SRVDIR}
