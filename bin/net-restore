@@ -5,8 +5,11 @@ USER=${LOGNAME}
 ARCHIVE="/home"
 SRVDIR="/ncsu/$USER/linux"
 
-#=== Backin up The Files ===
-echo "Restoring up files....."
-echo "Restoring $USER..." 
-cd $ARCHIVE
-/usr/bin/rsync -rltvz ${SRVDIR}/${USER} .  
+#=== Backing up The Files ===
+if [ -d $SRVDIR ]; then
+     echo "Restoring $USER..." 
+     cd $ARCHIVE
+     /usr/bin/rsync -rltvz ${SRVDIR}/${USER} .  
+else
+     echo "ERROR: $SRVDIR not found"
+fi
