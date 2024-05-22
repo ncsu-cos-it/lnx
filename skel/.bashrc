@@ -116,6 +116,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+## Append /usr/local if not there.
+LOCALCHK=`echo $PATH|grep local`
+if [ ! "$LOCALCHK" ]; then
+   PATH=$PATH:/usr/local/bin:/usr/local/sbin
+fi
+
 ### Uncomment to Change SHELL (CLS)
 ## if [ $?TERM ]; then
 ##        if ! [ "$TERM" == "" ]; then
