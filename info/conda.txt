@@ -1,0 +1,33 @@
+=== Sample .condarc ===
+channels:
+   - conda-forge
+   - defaults
+envs_dirs:
+   - ~/conda/envs
+pkgs_dirs:
+   - ~/conda/pkgs
+
+=== Sample stats.yml ===
+name: env-stats
+channels:
+- conda-forge
+- defaults
+dependencies:
+- numba
+- python=3.7.2
+- tensorflow-gpu=2.1.0
+- tensorflow
+- keras
+
+=== Create ENV from YML ===
+conda env create -n env-stats -f stats.yml 
+
+=== Useful Commands ===
+conda env list — Show all available conda environments
+conda activate ENV-NAME — Selects conda environment ENV-NAME
+conda env export > ENV-NAME.yml — Exports current environment to file ENV-NAME.yml
+conda list — Shows all conda packages installed for active environment
+conda search NAME — Searches for conda packages matching NAME
+conda install -y NAME — Installs conda packages matching NAME
+conda deactivate ENV-NAME — Deselects conda environment ENV-NAME
+conda env remove -n ENV-NAME — Deletes conda environment ENV-NAME
