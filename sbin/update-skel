@@ -14,7 +14,15 @@ do
      tuser=`echo $dir | cut -f1 -d/`
      tgroup=`groups $tuser | cut -f3 -d' '`
      cd $dir
-     rsync -tlvz /opt/cos/skel/.??* .
+     rsync -tlvz --exclude /opt/cos/skel/.ssh/authorized_keys /opt/cos/skel/.??* .
+     if [ -f .ssh/authorized_keys ]; then
+             cat /opt/cos/skel/.ssh/authorized_keys >> .ssh/authorized_keys
+             cat .ssh/authorized_keys | uniq > /tmp/t1
+             mv /tmp/t1 .ssh/authorized_keys
+     else
+             mkdir .ssh
+             cp /opt/cos/skel/.ssh/authorized_keys .ssh/authorized_keys
+     fi
      chown $tuser .??*  
      chgrp $tgroup .??*  
      cd /home
