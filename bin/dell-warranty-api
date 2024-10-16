@@ -16,8 +16,8 @@ if [ "$CHECK" = "" ]; then
 fi
 access_token_url="https://apigtwb2c.us.dell.com/auth/oauth/v2/token"
 grant_type="client_credentials"
-client_id="l7e0e01c38206545e68ef9b72ae8e32726"
-client_secret="6d178ca9b7bf46fb844347bd317b1e57"
+client_id="l73295568a0b3a495285bc584a5f0594e7"
+client_secret="979f3851d09448bf8862ceda062921fb"
 
 #  curl -s --request POST --url 'https://apigtwb2c.us.dell.com/auth/oauth/v2/token' --header 'Content-Type: application/x-www-form-urlencoded' --data-urlencode client_id='l7e0e01c38206545e68ef9b72ae8e32726' --data-urlencode client_secret='6d178ca9b7bf46fb844347bd317b1e57' --data-urlencode grant_type='client_credentials' 
 
