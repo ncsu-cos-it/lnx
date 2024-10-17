@@ -2,7 +2,8 @@
 if ! [ -d "$HOME/Desktop" ]; then
 	mkdir $HOME/Desktop
 fi
-echo "HostName:     "`hostname` > $HOME/Desktop/COS-INFO.txt
+echo "Email:        help@sciences.ncsu.edu" > $HOME/Desktop/COS-INFO.txt
+echo "HostName:     "`hostname` >> $HOME/Desktop/COS-INFO.txt
 echo "Tag:          "`/opt/cos/bin/show-tag` >> $HOME/Desktop/COS-INFO.txt
 echo "IP Address:   "`/opt/cos/bin/show-ip` >> $HOME/Desktop/COS-INFO.txt
 cat $HOME/Desktop/COS-INFO.txt
