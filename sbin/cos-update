@@ -23,7 +23,7 @@ if [ -d $localPath ]
     chmod -R 775 /opt/cos/etc
     chmod g+s /opt/cos/etc
     chgrp -R ncsu /opt/cos
-    if [ -d "/usr/local/sbin" ] 
+    if ! [ -d "/usr/local/sbin" ] 
       then
 	 mkdir /usr/local/sbin
     fi
