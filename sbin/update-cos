@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ ! "$SUDO_USER" ]; then
+   echo "ERROR: sudo $0"
+   exit 0
+fi
+
+# Define the repository URL and local path
+repoUrl="https://github.com/ncsu-cos-it/lnx"
+localPath="/opt/cos"
+
+# Check if the local repository exists
+if [ -d $localPath ] 
+  then 
+    # If it exists, navigate to the repository and pull the latest changes
+    echo "Repository exists. Pulling latest changes..."
+    cd $localPath
+    git pull $localPath
+  else 
+    # If it doesn't exist, clone the repository
+    echo "Repository does not exist. Cloning repository..."
+    git clone $repoUrl $localPath
+    chmod -R 775 /opt/cos/etc
+    chmod g+s /opt/cos/etc
+    chgrp -R ncsu /opt/cos
+    if [ -d "/usr/local/sbin" ] 
+      then
+	 mkdir /usr/local/sbin
+    fi
+fi
+ln -f -s /opt/cos/bin/* /usr/local/bin/
+ln -f -s /opt/cos/sbin/* /usr/local/sbin/
