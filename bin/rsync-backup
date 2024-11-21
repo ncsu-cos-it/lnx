@@ -4,7 +4,7 @@
 USER=${LOGNAME}
 LOGFILE="bkup-log.txt"
 ARCHIVE="/home"
-SRVDIR="/ncsu/$USER/linux"
+SRVDIR="/ncsu/$USER/$HOST"
 
 #=== Backin up The Files ===
 echo "Backing up files....."

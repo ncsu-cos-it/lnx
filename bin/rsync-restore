@@ -3,7 +3,7 @@
 #=== Configuration ===
 USER=${LOGNAME}
 ARCHIVE="/home"
-SRVDIR="/ncsu/$USER/linux"
+SRVDIR="/ncsu/$USER/$HOST"
 
 #=== Backing up The Files ===
 if [ -d $SRVDIR ]; then
