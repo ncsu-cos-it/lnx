@@ -4,8 +4,10 @@
 USER=${LOGNAME}
 LOGFILE="bkup-log.txt"
 ARCHIVE="/home"
-SRVDIR="/ncsu/$USER/$HOST"
-
+SRVHOST=`cat /etc/hostname | cut -f1 -d.`
+SRVDIR="/ncsu/$USER/$SRVHOST"
+echo $SRVDIR
+exit 0
 #=== Backin up The Files ===
 echo "Backing up files....."
 echo "===================================================================" > /tmp/${LOGFILE}
