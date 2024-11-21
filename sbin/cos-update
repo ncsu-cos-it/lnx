@@ -15,7 +15,7 @@ if [ -d $localPath ]
     # If it exists, navigate to the repository and pull the latest changes
     # echo "Repository exists. Pulling latest changes..."
     cd $localPath
-    git pull $localPath
+    git pull 
   else 
     # If it doesn't exist, clone the repository
     # echo "Repository does not exist. Cloning repository..."
