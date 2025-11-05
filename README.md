@@ -7,7 +7,7 @@
  <li>cd /opt</li>
  <li>git clone https://github.com/ncsu-cos-it/lnx cos<br>
   <li>cd cos/sbin</li>
-  <li>/cos-config</li>
+  <li>./cos-config</li>
   <li>exit</li>
 </ol>
 
