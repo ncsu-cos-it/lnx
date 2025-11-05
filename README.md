@@ -11,6 +11,16 @@
   <li>exit</li>
 </ol>
 
+## Manual Config SN/TAG
+ <ol>
+ <li>Open "terminal"</li>
+ <li>cd /opt/cos/etc</li>.
+ <li>nano SN.txt<br>
+  (Type whatever seriall number you have for computer)</li>
+ <li>nano TAG.txt<br>
+   (Type whatever asset tag you have for computer)</li>
+ </ol>
+
 ## Update
 <ol>
   <li>Open "terminal"</li>
