@@ -1,0 +1,17 @@
+#!/bin/sh
+cd /opt
+chown -R 108 cos
+chmod -R 775 cos/etc
+chmod g+s cos/etc
+cd /usr/local/bin
+ln -s /opt/cos/bin/* .
+cd /usr/local/sbin
+ln -s /opt/cos/sbin/* .
+cd
+show-sn
+show-model
+show-tag
+set EDITOR=vi
+export EDITOR
+cd /opt/cos/info
+cat crontab.txt | crontab -
