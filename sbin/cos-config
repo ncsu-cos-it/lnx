@@ -13,5 +13,11 @@ show-model
 show-tag
 set EDITOR=vi
 export EDITOR
-cd /opt/cos/info
-cat crontab.txt | crontab -
+cd /tmp
+crontab -l | grep -v \# > /tmp/root-crontab.txt
+if [ -s /tmp/root-crontab.txt ]; then
+   cd /opt/cos/info
+   cat crontab.txt | crontab -
+else
+   echo "add /opt/cos/info/crontab.txt to existing crontab"
+fi
