@@ -9,6 +9,7 @@ if [ -d $localPath ]
   then 
     # If it exists, navigate to the repository and pull the latest changes
     # echo "Repository exists. Pulling latest changes..."
+    git config --global --add safe.directory /opt/cos
     cd $localPath
     git pull 
   else 
