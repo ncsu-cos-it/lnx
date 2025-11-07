@@ -15,7 +15,7 @@ set EDITOR=vi
 export EDITOR
 cd /tmp
 crontab -l | grep -v \# > /tmp/root-crontab.txt
-if [ -s /tmp/root-crontab.txt ]; then
+if [ ! -s /tmp/root-crontab.txt ]; then
    cd /opt/cos/info
    cat crontab.txt | crontab -
 else
