@@ -1,6 +1,6 @@
 #!/bin/sh
 cd /opt
-chown -R 108 cos
+chgrp -R 108 cos
 chmod -R 775 cos/etc
 chmod g+s cos/etc
 cd /usr/local/bin
