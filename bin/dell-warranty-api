@@ -4,6 +4,12 @@ if [ $# -lt 1 ]; then
 	echo ERROR: $0 {Dell ServiceTag}
 	exit 0
 fi
+
+COMMACHECK=`echo $1 | grep ,`
+if [ "$COMMACHECK" ]; then
+	echo "ERROR: $0 {ServiceTag} {ServiceTag}"
+	exit 0
+fi
 CHECK=`which curl`
 if [ "$CHECK" = "" ]; then
   echo [ curl ] is not found.
@@ -33,7 +39,6 @@ RESULT=`curl -s --request POST \
 AUTHORIZATION=`jq '.access_token' <<< "$RESULT"`
 ACCESS=`echo $AUTHORIZATION | tr -d '"'`
 # echo ACCESS_TOKEN=$ACCESS
-
 
 for a in ${@}
 do
