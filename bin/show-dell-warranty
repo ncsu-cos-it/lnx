@@ -1,4 +1,8 @@
 #!/bin/bash
+# https://www.dell.com/en-us/lp/dt/tech-direct
+# https://tdm.dell.com/dashboard?lang=en_US
+# APIs
+# COS Snipe Api_2025_06_02 (Expires 06/02/2026)
 BINDIR="/opt/cos/bin"
 CONFDIR="/opt/cos/etc"
 if ! [ -d "$CONFDIR" ] 
