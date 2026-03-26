@@ -8,9 +8,10 @@ ln -s /opt/cos/bin/* .
 cd /usr/local/sbin
 ln -s /opt/cos/sbin/* .
 cd
-show-sn
-show-model
-show-tag
+/usr/local/sbin/LSAgent-Install-Linux
+/usr/local/sbin/show-sn
+/usr/local/sbin/show-model
+/usr/local/bin/show-tag
 set EDITOR=vi
 export EDITOR
 cd /tmp
