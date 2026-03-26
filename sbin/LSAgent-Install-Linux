@@ -1,0 +1,21 @@
+#!/bin/sh
+# Check Sudo/Root
+if [ ! "$(id -u)" -eq 0 ]; then
+   # echo sudo required
+   exit 0
+fi
+# Check if already installed
+if [ -f "/etc/systemd/system/ls-agent.service" ]; then
+   # echo Already Installed
+   exit 0
+fi
+# 
+cd /tmp
+OS=`cat /usr/lib/os-release | grep 'ID_LIKE' | cut -f2 -d= | cut -f1 -d' ' | sed -e 's/"//g'`
+# echo $OS
+LS_SERVER="nayaug.cos.ncsu.edu"
+AGENTKEY="fceafb7e-0bb7-48e9-b27d-ff8d84de8ab8"
+curl -L "https://content.lansweeper.com/lsagent-linux/?_gl=1*16medsc*_gcl_au*MjA2MzUzNTk2OS4xNzc0NDYyNzM4*_ga*Mzc5MjI3OTg2LjE3NzQ0NjI3Mzg.*_ga_22W23LECE0*czE3NzQ0NjI3MzgkbzEkZzEkdDE3NzQ0NjUwMzIkajYwJGwwJGgxMDE2OTgwOTgxJGRGSzBJQzZ2ZE5jMl9nejBySnJxVFNJLWFPLUZmY2V3Y0p3" -o /tmp/LsAgent-linux.run
+chmod +x /tmp/LsAgent-linux.run
+./LsAgent-linux.run --server "$LS_SERVER" --agentkey "$AGENTKEY" --prefix "/opt/LansweeperAgent" --mode unattended
+systemctl status ls-agent.service
