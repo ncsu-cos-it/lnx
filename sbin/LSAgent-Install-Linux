@@ -6,8 +6,8 @@ if [ ! "$(id -u)" -eq 0 ]; then
 fi
 # Check if already installed
 if [ -f "/etc/systemd/system/ls-agent.service" ]; then
-   echo Already Installed
-   # exit 0
+   # echo Already Installed
+   exit 0
 fi
 # 
 cd /tmp
