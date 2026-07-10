@@ -1,0 +1,18 @@
+#!/bin/sh
+OS=`uname`
+BINDIR="/opt/cos/bin"
+CONFDIR="/opt/cos/etc"
+
+if [ -f "$CONFDIR/PROC.txt" ]; then
+  cat $CONFDIR/PROC.txt
+  exit 0
+fi
+if ! [ $LOGNAME = "root" ]; then
+    echo "Need to be root"
+else
+    PROC2=`grep -m 1 'model name' /proc/cpuinfo | cut -f2 -d:`
+    PROC="${PROC2:1}"
+    echo $PROC > $CONFDIR/PROC.txt
+    chmod 644 $CONFDIR/PROC.txt
+    cat $CONFDIR/PROC.txt
+fi
