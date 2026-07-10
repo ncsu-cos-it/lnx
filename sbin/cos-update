@@ -16,7 +16,7 @@ if [ -d $localPath ]
     # If it doesn't exist, clone the repository
     # echo "Repository does not exist. Cloning repository..."
     git clone $repoUrl $localPath
-    chmod -R 775 /opt/cos/etc
+    chmod -R 644 /opt/cos/etc
     chmod g+s /opt/cos/etc
     chgrp -R ncsu /opt/cos
     if ! [ -d "/usr/local/sbin" ] 
